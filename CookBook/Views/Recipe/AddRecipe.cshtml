@@ -1,0 +1,48 @@
+﻿@model  List<CookBook.Models.Chef>
+@{
+    ViewBag.Title = "AddRecipe";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add a New Recipe</title>
+</head>
+<body>
+    <h2>Add a New Recipe</h2>
+    <div class="navbar">
+        <a class="navlink" href="/Recipe/ListRecipe">Back to List</a>
+    </div>
+    <form method="POST" action="/Recipe/AddRecipe">
+        <!-- TODO: format this nicely -->
+        <div class="inpfield"><span>Name:</span><input id="RecipeName" type="text" name="RecipeName" /></div>
+        <div class="inpfield">
+            <span>Chef Name:</span>
+            <select id="ChefID" type="text" name="ChefID">
+                @{
+                    //A rendering loop for presenting a list of chefs
+                    //The recipe should be one of these Chefs
+                    foreach (var chef in Model)
+                    {
+                        <option value="@chef.chefID">@chef.chefName</option>
+
+                    }
+                }
+            </select>
+        </div>
+        <div class="inpfield"><span>Category :</span><input id="RecipeCategory" type="text" name="RecipeCategory" /></div>
+        <div class="inpfield"><span>Cusine:</span><input id="RecipeCusine" type="text" name="RecipeCusine" /></div>
+        <div class="inpfield">
+            Notes:
+            <textarea id="RecipeDescription" name="RecipeDescription">
+        </textarea>
+        </div>
+        <div class="inpfield">
+            <input type="submit" value="Add New Recipe">
+        </div>
+    </form>
+
+</body>
+</html>

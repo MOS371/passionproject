@@ -1,0 +1,24 @@
+﻿@model CookBook.Models.Chef
+@{
+    ViewBag.Title = "Update Chef";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <h2>Update @Model.chefName</h2>
+    <a href="/Species/List">Back to List</a>
+
+    <form method="post" action="/Chef/UpdateChef/@Model.chefID">
+        <input type="text" id="ChefName" name="ChefName" value="@Model.chefName" />
+        <input type="text" id="ChefExperience" name="ChefExperience" value="@Model.experience" />
+        <input type="text" id="ChefSpeciality" name="ChefSpeciality" value="@Model.speciality" />
+        <input type="submit" value="update chef" />
+    </form>
+</body>
+</html>

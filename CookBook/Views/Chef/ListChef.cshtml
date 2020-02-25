@@ -1,0 +1,33 @@
+﻿@model List<CookBook.Models.Chef>
+@{
+    ViewBag.Title = "ListChef";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List of Chefs</title>
+</head>
+<body>
+    <h2>List of Chefs</h2>
+    <div class="navbar">
+        <a href="/Chef/AddChef">Add Chef</a>
+    </div>
+    <div class="tilecontainer">
+        @{
+            foreach (var chef in @Model)
+            {
+
+                <div class="listitem">
+                    <a href="/Chef/ShowChef/@chef.chefID">@chef.chefName</a>
+                    <div>Experience : <span>@(chef.experience) years</span></div>
+                    <div>Speciality : <span>@(chef.speciality) </span></div>
+                    <a class="cta" href="/Chef/UpdateChef/@chef.chefID">Update</a>
+                </div>
+            }
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@model CookBook.Models.Chef
+@{
+    ViewBag.Title = "DeleteChef";;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete Chef</title>
+</head>
+<body>
+    <h2>Are you sure you want to delete @Model.chefName ?</h2>
+    <div class="navbar">
+        <a href="/Chef/ShowChef/@Model.chefID">Cancel</a>
+    </div>
+    <form method="POST" action="/Chef/Delete/@Model.chefID">
+        <div class="inpfield"><input type="submit" value="Confirm" /></div>
+    </form>
+
+</body>
+</html>

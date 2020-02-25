@@ -1,0 +1,26 @@
+﻿@model CookBook.Models.Chef
+@{
+    ViewBag.Title = "Show Chef";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show Chef</title>
+</head>
+<body>
+    <h2>Show Chef</h2>
+    <div class="navbar">
+        <a class="navlink" href="/Chef/ListChef">Back to List</a>
+        <a class="navlink" href="/Chef/UpdateChef/@Model.chefID">Update</a>
+        <a class="navlink" href="/Chef/DeleteChef/@Model.chefID">Delete</a>
+    </div>
+    <div>
+        <span>Name : </span>@Model.chefName <br />
+        <span>Experience: </span>@Model.experience<br />
+        <span>Experience: </span>@Model.speciality
+    </div>
+</body>
+</html>

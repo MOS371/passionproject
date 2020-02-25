@@ -1,0 +1,37 @@
+﻿@model List<CookBook.Models.Recipe>
+@{
+    ViewBag.Title = "ListRecipe";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List of Recipes</title>
+</head>
+<body>
+    <h2>List of Recipes</h2>
+    <div class="navbar">
+        <a class="navlink" href="/Recipe/AddRecipe">Add New</a>
+    </div>
+    <div class="tilecontainer">
+        @{
+            foreach (var Recipe in Model)
+            {
+                
+                <div class="itemdetails">
+                    <div class="listcat"><a href="/Recipe/ShowRecipe/@Recipe.RecipeID">@Recipe.RecipeName</a></div>
+                    <div class="listcat">Chef Name : <span>@Recipe.Chefs.chefName</span></div>
+                    <div class="listcat">Recipe Category : <span>@(Recipe.Category)</span></div>
+                    <div class="listcat">Recipe Description : <span>@(Recipe.Description)</span></div>
+                    <span class="cta"><a href="/Recipe/UpdateRecipe/@Recipe.RecipeID">Update</a></span>
+                </div>
+                <div style="clear:both;"></div>
+            
+            }
+        }
+        <div style="clear:both;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddChef";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New Chef</title>
+</head>
+<body>
+    <h2>Add Chef</h2>
+    <a href="/Chef/ListChef" class="navlink">Back to List</a>
+    <form method="POST" action="/Chef/AddChef">
+        <div class="inpfield"><span>Name:</span><input type="text" id="chefName" name="ChefName" /></div>
+        <div class="inpfield"><span>Expirence:</span><input type="text" id="ChefExperience" name="ChefExperience" /></div>
+        <div class="inpfield"><span>Speciality:</span><input type="text" id="ChefSpeciality" name="ChefSpeciality" /></div>
+        <div class="inpfield"><input type="submit" value="Add New Chef" /></div>
+    </form>
+</body>
+</html>

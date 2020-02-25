@@ -1,0 +1,46 @@
+﻿@model CookBook.Models.ViewModels.UpdateRecipeViewModel
+@{
+    ViewBag.Title = "UpdateRecipe";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update the Recipe</title>
+</head>
+<body>
+    <h2>Update the Recipe</h2>
+    <div class="navbar">
+        <a href="/Recipe/ListRecipe">Back to List</a>
+    </div>
+    <form action="/Recipe/UpdateRecipe/@Model.Recipe.RecipeID" method="POST" enctype="multipart/form-data">
+
+        <div class="inpfield"><span>Recipe Name: </span><input type="text" value="@Model.Recipe.RecipeName" id="RecipeName" name="RecipeName" /> </div>
+        <div class="inpfield"><span>Category: </span><input type="text" value="@Model.Recipe.Category" id="Category" name="Category" /> </div>
+        <div class="inpfield"><span>Cusine: </span><input type="text" value="@Model.Recipe.Cusine" id="Cusine" name="Cusine" />kg </div>
+        <div class="inpfield">
+            <span>Chef: </span>
+            <select id="RecipeChefID" name="ChefID">
+                @foreach (var Chef in @Model.Chefs)
+                {
+                    var selected = "";
+                    if (Model.Recipe.ChefID == Chef.chefID)
+                    {
+                        selected = "selected";
+                    }
+                    <option value="@Chef.chefID" @selected>@Chef.chefName</option>
+                }
+            </select>
+        </div>
+
+        <div class="inpfield">
+            <span>Pet Notes</span>
+            <textarea id="Description" name="Description">@Model.Recipe.Description</textarea>
+        </div>
+        <div class="inpfield"><input type="submit" value="update pet" /></div>
+
+    </form>
+</body>
+</html>
